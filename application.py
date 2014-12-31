@@ -18,5 +18,12 @@ def users_index():
     context = {'users':db_controller.users}
     return render_template("users.html", **context)
 
+@application.route("/<api_key>/users")
+def users_json(api_key):
+    if (db_controller.valid_api_key(api_key)):
+        return db_controller.get_users_json()
+    else:
+        return "{\"Error\": \"Invalid API key\"}"
+
 if __name__ == '__main__':
     application.run(host='0.0.0.0')

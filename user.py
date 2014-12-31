@@ -1,5 +1,6 @@
 import hashlib
 import random
+import json
 
 class User:
 
@@ -16,3 +17,13 @@ class User:
         self.first_name = kwargs.get('first_name', '')
         self.last_name = kwargs.get('last_name', '')
         self.email = kwargs.get('email', '')
+
+    def to_json(self):
+        my_dict = {
+            'id': self.id,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'email': self.email
+        }
+
+        return json.dumps(my_dict)
