@@ -1,14 +1,21 @@
-import flask
- 
-application = flask.Flask(__name__)
+from flask import Flask
+from flask import render_template
+from flask import redirect
+from flask import url_for
+from flask import request
+from flask import make_response
+from flask import flash
+import json
+from db_controller import DB_Controller
+from user import User
 
-#Set application.debug=true to enable tracebacks on Beanstalk log output. 
-#Make sure to remove this line before deploying to production.
-application.debug=True
- 
-@application.route('/')
-def hello_world():
-    return "Hello world!"
- 
-if __name__ == '__main__':
-    application.run(host='0.0.0.0')
+app = Flask(__name__)
+
+db_controller = DB_Controller()
+
+@app.route("/")
+def users_index():
+    context = {'users':db_controller.users}
+    return render_template("users.html", **context)
+
+app.run(host='0.0.0.0')
