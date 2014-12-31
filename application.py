@@ -11,19 +11,19 @@ import json
 from db_controller import DB_Controller
 from user import User
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-assets = Environment(app)
-assets.url = app.static_url_path
+assets = Environment(application)
+assets.url = application.static_url_path
 scss = Bundle('all.scss', filters='scss', output='all.css')
 assets.register('scss_all', scss)
 
 db_controller = DB_Controller()
 
-@app.route("/")
+@application.route("/")
 def users_index():
     context = {'users':db_controller.users}
     return render_template("users.html", **context)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    application.run(host='0.0.0.0')
