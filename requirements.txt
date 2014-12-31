@@ -1,2 +1,11 @@
 Flask==0.10.1
 Flask-Assets==0.10
+Jinja2==2.7.3
+MarkupSafe==0.23
+Werkzeug==0.9.6
+boto==2.34.0
+itsdangerous==0.24
+mistune==0.4.1
+requests==2.4.3
+virtualenv==1.11.6
+webassets==0.10.1

@@ -25,4 +25,5 @@ def users_index():
     context = {'users':db_controller.users}
     return render_template("users.html", **context)
 
-app.run(host='0.0.0.0')
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
