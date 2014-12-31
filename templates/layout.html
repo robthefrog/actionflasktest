@@ -2,9 +2,7 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
-        {% assets "scss_all" %}
-            <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"></script>
-        {% endassets %}
+        <link rel="stylesheet" type="text/css" href="/static/all.css">
     </head>
     <body>
         {% block content %}{% endblock %}
