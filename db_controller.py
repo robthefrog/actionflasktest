@@ -12,6 +12,13 @@ class DB_Controller:
             users_json_list.append(user.to_json())
         return json.dumps(users_json_list)
 
+    def get_action_items_for_user_json(self, user_id):
+        action_items_list = []
+        for action_item in self.action_items:
+            if action_item.user_id == user_id:
+                action_items_list.append(action_item.to_json())
+        return json.dumps(action_items_list)
+
     def valid_api_key(self, api_key):
         for user in self.users:
             if user.api_key == api_key:
@@ -21,3 +28,4 @@ class DB_Controller:
 
     def __init__(self):
         self.users = self.sample_data.get_sample_users()
+        self.action_items = self.sample_data.get_sample_action_items()
