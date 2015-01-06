@@ -1,5 +1,3 @@
-import json
-
 class Action_Item:
     id = 0
     user_id = 0
@@ -19,7 +17,7 @@ class Action_Item:
         self.complete = kwargs.get('complete', False)
 
     def to_dict(self):
-        my_dict = {
+        return {
             'id': self.id,
             'user_id': self.user_id,
             'text': self.text,
@@ -28,5 +26,3 @@ class Action_Item:
             'reattacks': self.reattacks,
             'complete': self.complete
         }
-
-        return my_dict
