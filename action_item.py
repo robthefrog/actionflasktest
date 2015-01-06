@@ -1,4 +1,3 @@
-import datetime
 import json
 
 class Action_Item:
@@ -19,7 +18,7 @@ class Action_Item:
         self.reattacks = kwargs.get('reattacks', [])
         self.complete = kwargs.get('complete', False)
 
-    def to_json(self):
+    def to_dict(self):
         my_dict = {
             'id': self.id,
             'user_id': self.user_id,
@@ -30,4 +29,4 @@ class Action_Item:
             'complete': self.complete
         }
 
-        return json.dumps(my_dict)
+        return my_dict

@@ -5,14 +5,13 @@ from flask import url_for
 from flask import request
 from flask import make_response
 from flask import flash
-import json
 from db_controller import DB_Controller
-from user import User
 
 application = Flask(__name__)
 
 db_controller = DB_Controller()
 
+@application.route("/")
 @application.route("/users")
 def users_index():
     context = {'users':db_controller.users}

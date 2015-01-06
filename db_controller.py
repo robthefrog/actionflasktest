@@ -9,14 +9,14 @@ class DB_Controller:
     def get_users_json(self):
         users_json_list = []
         for user in self.users:
-            users_json_list.append(user.to_json())
+            users_json_list.append(user.to_dict())
         return json.dumps(users_json_list)
 
     def get_action_items_for_user_json(self, user_id):
         action_items_list = []
         for action_item in self.action_items:
             if action_item.user_id == user_id:
-                action_items_list.append(action_item.to_json())
+                action_items_list.append(action_item.to_dict())
         return json.dumps(action_items_list)
 
     def valid_api_key(self, api_key):

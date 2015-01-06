@@ -18,7 +18,7 @@ class User:
         self.last_name = kwargs.get('last_name', '')
         self.email = kwargs.get('email', '')
 
-    def to_json(self):
+    def to_dict(self):
         my_dict = {
             'id': self.id,
             'first_name': self.first_name,
@@ -26,4 +26,4 @@ class User:
             'email': self.email
         }
 
-        return json.dumps(my_dict)
+        return my_dict
