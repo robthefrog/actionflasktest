@@ -1,10 +1,5 @@
 from flask import Flask
 from flask import render_template
-from flask import redirect
-from flask import url_for
-from flask import request
-from flask import make_response
-from flask import flash
 from db_controller import DB_Controller
 
 application = Flask(__name__)
